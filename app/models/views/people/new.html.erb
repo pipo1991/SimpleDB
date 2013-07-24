@@ -1,0 +1,28 @@
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="People name new">
+  <h2>Create People</h2>
+
+  <%= form_for(:people, :url => {:action => 'create'}) do |ps| %>
+  
+  <table summary="Group detail view">
+  	<tr>
+      <th>People name</th>
+      <td><%= ps.text_field(:name) %></td>
+    </tr>
+    <tr>
+      <th>NID</th>
+      <td><%= ps.text_field(:nid) %></td>
+    </tr>
+    <tr>
+      <th>Group Name</th>
+      <td><%= ps.select(:group_id, Group.all.map {|p| [p.name,p.id]}, :prompt => "Select a Group") %></td>
+    </tr>
+  </table>
+  
+  <div class="from-buttons">
+		<%= submit_tag("Create People")%>	
+  </div>
+  
+  <% end %>
+</div>

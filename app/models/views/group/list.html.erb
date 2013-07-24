@@ -1,0 +1,30 @@
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+		<%= flash[:notice]%>
+	</div>
+<% end%>
+
+<div class="Group list">
+  <h2>Groups</h2>
+  <%= link_to("Add new group",{:action => 'new'},:class => 'action new')%>
+  <%= link_to("Go to people",{:controller=>'people',:action => 'list'},:class => 'action new')%>
+  <table class="listing" summary="Group list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th class="center">group ID</th>
+      <th class="center">group name</th>
+    </tr>
+    <% @gs.each do |group| %>
+    <tr>
+      <td></td>
+      <td><%= group.id %></td>
+      <td><%= group.name %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => group.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => group.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => group.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

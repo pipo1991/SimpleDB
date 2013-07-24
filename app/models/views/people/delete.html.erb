@@ -1,0 +1,16 @@
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="People delete"</h2>
+
+  <%= form_for(:group, :url => {:action => 'destroy',:id => @people.id}) do |ps| %>
+  
+  <p>Do you want to delete this Group?</p>
+	
+  <p class="referName"><%= @people.name%></p>
+  
+  <div class="from-buttons">
+		<%= submit_tag("Delete People")%>	
+  </div>
+  
+  <% end %>
+</div>
