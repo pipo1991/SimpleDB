@@ -13,6 +13,16 @@
       <td><%= @g.name %></td>
     </tr>
     <tr>
+    	<th>Team Members</th>
+    	<td>
+		<% for ps in @g.human %>
+		<div>
+		  <%= ps.name %>
+		</div>
+		<% end %>
+		</td>
+    </tr>
+    <tr>
       <th>Created</th>
       <td><%= @g.created_at %></td>
     </tr>

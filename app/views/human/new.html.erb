@@ -3,7 +3,7 @@
 <div class="People name new">
   <h2>Create People</h2>
 
-  <%= form_for(:people, :url => {:action => 'create'}) do |ps| %>
+  <%= form_for(:human, :url => {:action => 'create'}) do |ps| %>
   
   <table summary="Group detail view">
   	<tr>
@@ -15,14 +15,23 @@
       <td><%= ps.text_field(:nid) %></td>
     </tr>
     <tr>
-      <th>Group Name</th>
+      <th>Main Group Name</th>
       <td><%= ps.select(:group_id, Group.all.map {|p| [p.name,p.id]}, :prompt => "Select a Group") %></td>
     </tr>
+    <tr>
+      <th>Groups Belongs to</th>
+      <td>
+		  <%= ps.select :group_ids, Group.all.map {|x| [x.name, x.id]}, {}, :multiple => true %>
+	  </td>
+	  <br>
+	  <td>
+	  	**Use Ctrl key to multy select
+	  </td> 	
+	</tr>
   </table>
   
   <div class="from-buttons">
-		<%= submit_tag("Create People")%>	
+		<%= submit_tag("Create People")%>
   </div>
-  
   <% end %>
 </div>

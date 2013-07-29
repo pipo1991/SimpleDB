@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(:version => 20130724131614) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "groups_people", :id => false, :force => true do |t|
+  create_table "groups_humen", :id => false, :force => true do |t|
     t.integer "group_id"
-    t.integer "people_id"
+    t.integer "human_id"
   end
 
-  create_table "people", :force => true do |t|
+  create_table "humen", :force => true do |t|
     t.integer  "group_id"
     t.integer  "nid"
     t.string   "name",       :limit => 25

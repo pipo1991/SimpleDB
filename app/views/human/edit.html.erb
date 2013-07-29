@@ -2,7 +2,7 @@
 
 <div class="People update"</h2>
 
-  <%= form_for(:people, :url => {:action => 'update',:id => @people.id}) do |ps| %>
+  <%= form_for(:human, :url => {:action => 'update',:id => @human.id}) do |ps| %>
   
   <table summary="Group detail view">
   	<tr>
@@ -17,6 +17,16 @@
       <th>Group Name</th>
       <td><%= ps.select(:group_id, Group.all.map {|p| [p.name,p.id]}, :prompt => "Select a Group") %></td>
     </tr>
+    <tr>
+      <th>Groups Belongs to</th>
+      <td>
+		  <%= ps.select :group_ids, Group.all.map {|x| [x.name, x.id]}, {}, :multiple => true %>
+	  </td>
+	  <br>
+	  <td>
+	  	**Use Ctrl key to multy select
+	  </td> 	
+	</tr>
   </table>
   <div class="from-buttons">
 		<%= submit_tag("Update People")%>	

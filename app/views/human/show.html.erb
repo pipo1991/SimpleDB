@@ -1,9 +1,9 @@
 <%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
 
-<div class="Group show">
+<div class="People show">
   <h2>Show Group</h2>
 
-  <table summary="Group detail view">
+  <table summary="People detail view">
   	<tr>
       <th>People ID</th>
       <td><%= @ps.id %></td>
@@ -21,6 +21,19 @@
       <% temp=Group.find(@ps.group_id)%>
       <td><%= temp.name %></td>
     </tr>
+    <tr>
+    	<th></th>
+    </tr>
+    <tr>
+    	<th>Groups Belongs to</th>
+    	<td>
+		<% for group in @ps.group %>
+		<div>
+		  <%= group.name %>
+		</div>
+		<% end %>
+		</td>
+    </tr>	
     <tr>
       <th>Created</th>
       <td><%= @ps.created_at %></td>
