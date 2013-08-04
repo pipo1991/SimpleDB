@@ -4,8 +4,20 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+group_A: 
+  name: TeamA1
+  created_at: <%= Time.now %>
+
+group_B: 
+  name: TeamA2
+  created_at: <%= Time.now %>
+
+group_C:
+  name: TeamA3
+  created_at: <%= Time.now %>
+  
+<% 10.times do |n| %>
+group_<%= n %>:
+  name: <%= "Team#{n}" %>
+  created_at: <%= Time.now %>
+<% end %>
