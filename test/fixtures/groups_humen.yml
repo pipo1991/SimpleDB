@@ -1,0 +1,23 @@
+Rel1:
+  group_id: 1
+  human_id: 1
+
+Rel2:
+  group_id: 2
+  human_id: 1
+
+Rel3:
+  group_id: 3
+  human_id: 1
+  
+Rel4:
+  group_id: 1
+  human_id: 2
+  
+Rel5:
+  group_id: 2
+  human_id: 3
+  
+Rel6:
+  group_id: 3
+  human_id: 4

@@ -4,8 +4,30 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-<% 100.times do |n| %>
-Human_<%= n %>:
-  name: <%= "Human#{n}" %>
+Human_1:
+  id: 1
+  name: Sami
+  nid: 848944
+  group_id: 1
   created_at: <%= Time.now %>
-<% end %>
+
+Human_2:
+  id: 2
+  name: Ali
+  nid: 769132
+  group_id: 1
+  created_at: <%= Time.now %>
+  
+Human_3:
+  id: 3
+  name: Karim 
+  nid: 25698
+  group_id: 2
+  created_at: <%= Time.now %>
+  
+Human_4:
+  id: 4
+  name: Ahmed
+  nid: 746985
+  group_id: 3
+  created_at: <%= Time.now %>

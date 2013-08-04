@@ -5,19 +5,16 @@
 # below each fixture, per the syntax in the comments below
 #
 group_A: 
+  id: 1
   name: TeamA1
   created_at: <%= Time.now %>
 
 group_B: 
+  id: 2
   name: TeamA2
   created_at: <%= Time.now %>
 
 group_C:
+  id: 3
   name: TeamA3
   created_at: <%= Time.now %>
-  
-<% 10.times do |n| %>
-group_<%= n %>:
-  name: <%= "Team#{n}" %>
-  created_at: <%= Time.now %>
-<% end %>
