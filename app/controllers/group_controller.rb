@@ -45,7 +45,8 @@ class GroupController < ApplicationController
   end
   
   def destroy
-    Group.find(params[:id]).destroy
+    @group = Group.find(params[:id])
+    @group.destroy
     flash[:notice] = "Successfully deleted ..."
     redirect_to(:action => 'list')
   end
