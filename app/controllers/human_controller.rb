@@ -52,7 +52,8 @@ class HumanController < ApplicationController
   end
   
   def destroy
-    Human.find(params[:id]).destroy
+    @people=Human.find(params[:id])
+    @people.destroy
     flash[:notice] = "Successfully deleted ..."
     redirect_to(:action => 'list')
   end
