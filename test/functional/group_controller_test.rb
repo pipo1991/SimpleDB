@@ -36,10 +36,8 @@ class GroupControllerTest < ActionController::TestCase
   end
   
   def test_create_failed
-    assert_difference('Group.count') do
-      post :create, group: { name: nil }
-    end
-    assert_redirected_to(controller: "group",action: "new")
+    post :create, group: { name: nil }
+    assert_template :new
   end
   
   def test_edit
@@ -54,7 +52,7 @@ class GroupControllerTest < ActionController::TestCase
   
   def test_update_failed
     put :update, id: @group, group: { name: nil }
-    assert_redirected_to(controller: "group",action: "edit")
+    assert_template :edit
   end
   
   def test_delete
