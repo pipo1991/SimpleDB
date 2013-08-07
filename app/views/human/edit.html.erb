@@ -13,14 +13,22 @@
       <th>NID</th>
       <td><%= ps.text_field(:nid) %></td>
     </tr>
+        <% gs=Group.all %>
+    	<% @g2s=Array.new%>
+    	<% gin=@human.group%>
+    	<% for x in gs%>
+        	<% if x.human.count < 4 || gin.include?(x)%>
+        		<% @g2s.push(x)%>
+            <% end%>
+    	<% end%>
     <tr>
       <th>Group Name</th>
-      <td><%= ps.select(:group_id, Group.all.map {|p| [p.name,p.id]}, :prompt => "Select a Group") %></td>
+      <td><%= ps.select(:group_id, @g2s.map {|p| [p.name,p.id]}, :prompt => "Select a Group") %></td>
     </tr>
     <tr>
       <th>Groups Belongs to</th>
       <td>
-		  <%= ps.select :group_ids, Group.all.map {|x| [x.name, x.id]}, {}, :multiple => true %>
+		  <%= ps.select :group_ids, @g2s.map {|x| [x.name, x.id]}, {}, :multiple => true %>
 	  </td>
 	  <br>
 	  <td>
