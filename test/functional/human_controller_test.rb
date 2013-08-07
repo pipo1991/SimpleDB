@@ -30,7 +30,7 @@ class HumanControllerTest < ActionController::TestCase
   
   def test_create
     assert_difference('Human.count') do
-      post :create, human: { name: @people.name ,nid: @people.nid, group_id: @people.group_id}
+      post :create, human: { name: @people.name ,nid: @people.nid, group_id: @people.group_id,group: @people.group}
     end
     assert_redirected_to(controller: "human",action: "list")
   end
@@ -41,9 +41,10 @@ class HumanControllerTest < ActionController::TestCase
   end
   
   def test_update
-    put :update, id: @human, human:  { name: @people.name ,nid: @people.nid, group_id: @people.group_id}
+    put :update, id: @human, human:  { name: @human.name ,nid: @human.nid, group_id: @human.group_id,group: @human.group}
     assert_redirected_to(controller: "human",action: "list")
   end
+
   
   def test_delete
     get :delete, id: @people
@@ -56,4 +57,5 @@ class HumanControllerTest < ActionController::TestCase
     end
     assert_redirected_to(controller: "human",action: "list")
   end
+  
 end
