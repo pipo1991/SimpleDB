@@ -28,6 +28,6 @@ class HumanTest < ActiveSupport::TestCase
       h.group_id=1
       g.human << h
     end
-    assert !g.save
+    assert !g.valid?
   end
 end
