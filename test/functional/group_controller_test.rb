@@ -70,7 +70,7 @@ class GroupControllerTest < ActionController::TestCase
   def test_number_of_Group
     g=Group.all
     for x in g
-      assert x.human.count < 6
+      assert x.human.count < 5
     end
   end
 end
