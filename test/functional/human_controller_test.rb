@@ -35,6 +35,11 @@ class HumanControllerTest < ActionController::TestCase
     assert_redirected_to(controller: "human",action: "list")
   end
   
+  def test_create_fail
+    post :create, human: { name: nil}
+    assert_redirected_to(controller: "human",action: "new")
+  end
+  
   def test_edit
     get :edit, id: @human
     assert_response :success
@@ -45,6 +50,11 @@ class HumanControllerTest < ActionController::TestCase
     assert_redirected_to(controller: "human",action: "list")
   end
 
+  def test_update_fail
+    put :update, id: @human, human:  { name: nil}
+    assert_redirected_to(controller: "human",action: "edit")
+  end
+  
   
   def test_delete
     get :delete, id: @people
