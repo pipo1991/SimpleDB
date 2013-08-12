@@ -1,5 +1,11 @@
 <%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
 
+<% if !flash[:error].blank? %>
+	<div class="error">
+		<%= flash[:error]%>
+	</div>
+<% end%>
+
 <div class="People name new">
   <h2>Create People</h2>
 
