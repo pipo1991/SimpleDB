@@ -18,16 +18,18 @@ class HumanTest < ActiveSupport::TestCase
     assert !g.save
   end
   
-  def group_not_more_than_4
+  def test_group_not_more_than_4
     g=Group.new
     g.name="Temp"
-    for i in 0..10
+    for i in 0..5
       h=Human.new
       h.name="Human#{i}"
       h.nid=178765873
       h.group_id=1
       g.human << h
     end
-    assert !g.valid?
+    temp=Human.new
+    temp.group << g
+    assert !temp.save
   end
 end
