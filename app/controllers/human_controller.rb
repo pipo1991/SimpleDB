@@ -24,7 +24,7 @@ class HumanController < ApplicationController
        redirect_to(:action => 'list')
     else
       flash[:error] = "Couldn't save this human!"
-      render('new')
+      redirect_to(:action => 'new')
     end
   end
   
@@ -43,7 +43,7 @@ class HumanController < ApplicationController
       redirect_to(:action => 'list')
     else
       flash[:error] = "Couldn't update this human!"
-      render('edit')
+      redirect_to(:action => 'edit')
     end
   end
   
