@@ -1,6 +1,13 @@
 <%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
 
-<div class="People update"</h2>
+<% if !flash[:error].blank? %>
+	<div class="error">
+		<%= flash[:error]%>
+	</div>
+<% end%>
+
+<div class="People update">
+  <h2>Update People</h2>
 
   <%= form_for(:human, :url => {:action => 'update',:id => @human.id}) do |ps| %>
   
