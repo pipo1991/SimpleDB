@@ -1,5 +1,4 @@
 class Human < ActiveRecord::Base
-  # attr_accessible :title, :body
   validates_presence_of :name 
   validates_presence_of :nid
   validate :test_num
@@ -10,7 +9,7 @@ class Human < ActiveRecord::Base
   
   
   def test_num
-    for i in self.group.each
+    for i in self.group
       if i.human.count > 4
         errors.add(:base,"This is group have more than 4 members.")
         break
