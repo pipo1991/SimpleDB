@@ -10,8 +10,8 @@ class Human < ActiveRecord::Base
   
   def test_num
     for i in self.group
-      if i.human.count > 4
-        errors.add(:base,"This is group have more than 4 members.")
+      if !i.valid?
+        errors.add(:base,"This Human can't be created.Group is full")
         break
       end
     end
