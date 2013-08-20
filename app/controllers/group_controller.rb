@@ -5,6 +5,7 @@ class GroupController < ApplicationController
   end
   
   def list
+    #add a comment
     @gs=Group.all
   end
   
